@@ -1,31 +1,16 @@
-# import flask dependencies 
-from flask import Flask, request, make_response, jsonify 
+from flask import Flask
+app = Flask(__name__)
 
-# initialize the flask app 
-app = Flask(__name__) 
-
-# default route 
-@app.route('/') 
-def index(): 
-	return 'Hello World!' 
-
-# function for responses 
-def results(): 
-	# build a request object 
-	req = request.get_json(force=True) 
-
-	# fetch action from json 
-	action = req.get('queryResult').get('action') 
-
-	# return a fulfillment response 
-	return {'fulfillmentText': 'This is a response from webhook.'} 
-
-# create a route for webhook 
-@app.route('/webhook', methods=['GET', 'POST']) 
-def webhook(): 
-	# return response 
-	return make_response(jsonify(results())) 
-
-# run the app 
-if __name__ == '__main__': 
-	app.run()
+@app.route('/') # this is the home page route
+def hello_world(): # this is the home page function that generates the page code
+    return "Hello world!"
+    
+@app.route('/webhook', methods=['POST'])
+def webhook():
+  return {
+        "fulfillmentText": 'This is from the replit webhook',
+        "source": 'webhook'
+    }
+   
+if __name__ == '__main__':
+  app.run(host='0.0.0.0', port=8080) # This line is required to run Flask on repl.it
