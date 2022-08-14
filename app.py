@@ -127,6 +127,39 @@ def makeWebhookResult(action, diseaseName):
                             + "- Minum obat penurun demam dan obat pereda sakit serta nyeri.\n\n"
                             + "Campak juga dikenal dengan rubeola atau campak merah. Saat ini telah tersedia vaksin untuk mencegah penyakit ini. Vaksin untuk penyakit ini termasuk dalam bagian dari vaksin MMR (campak, gondongan, campak Jerman). Vaksinasi MMR adalah vaksin gabungan untuk campak, gondongan, dan campak Jerman. Vaksinasi MMR diberikan dua kali. Pertama, diberikan ketika Si Kecil berusia 15 bulan dan dosis vaksin MMR berikutnya diberikan saat mereka berusia 5–6 tahun atau sebelum memasuki masa sekolah dasar. Vaksin memiliki fungsi yang cukup penting dalam mencegah campak.",
         },
+        "Vitiligo" : {
+            "name": "Vitiligo",
+            "image": "https://res.cloudinary.com/dk0z4ums3/image/upload/v1589166576/attached_image/vitiligo-0-alodokter.jpg",
+            "description": "Vitiligo adalah penyakit yang menyebabkan warna kulit memudar. Area kulit yang memudar biasanya bertambah besar seiring waktu. Selain bisa menyerang area kulit mana pun di tubuh, vitiligo juga dapat terjadi di bagian dalam mulut, mata, rambut, dan area kelamin.",
+            "symptomps": "Gejala vitiligo adalah munculnya bercak hipopigmentasi di tubuh. Pada awalnya, bercak yang muncul berwarna lebih muda dari kulit, kemudian perlahan-lahan memutih.\n\n"
+                            + " Kemunculan bercak vitiligo dimulai dari bagian tubuh yang sering terpapar sinar matahari, seperti wajah, bibir, tangan dan kaki, lalu menyebar ke bagian tubuh lain.",
+            "treatment": "Penanganan utama pada vitiligo adalah dengan memaksimalkan perlindungan kulit dari sinar matahari. Oleh karena itu, gunakanlah tabir surya dengan SPF30 atau lebih, agar kulit tidak mudah terbakar matahari dan terhindar dari kerusakan\n\n"
+                            + "Kamu juga dapat menggunakan krim kamuflase kulit untuk menyamarkan bercak-bercak vitiligo, alternatif lainnya adalah penggunaan kosmetik seperti losion penggelap kulit.\n\n"
+                            + "Dokter cenderung menganjurkan penanganan vitiligo dengan produk perawatan tubuh dan kosmetik secara maksimal sebelum memutuskan langkah penanganan lain. Obat yang digunakan untuk penanganan vitiligo dikonsumsi sesuai dengan anjuran dokter.",
+        },
+        "Melanoma" : {
+            "name": "Melanoma",
+            "image": "https://cdn.hellosehat.com/wp-content/uploads/2018/06/Apakah-Tahi-Lalat-yang-Gatal-Termasuk-Normal-Apa-Penyebabnya-700x467.jpg",
+            "description": "Melanoma adalah jenis kanker kulit paling agresif. Kondisi ini muncul karena adanya gangguan pada sel yang memproduksi melanin (pigmen pemberi warna kulit) atau melanosit.",
+            "symptomps": "Beberapa tanda dan gejala kanker kulit melanoma yang paling umum meliputi:\n"
+                            + "- bentuk tahi lalat yang tidak biasa,\n"
+                            + "- tahi lalat bertambah besar,\n"
+                            + "- perubahan warna tahi lalat,\n"
+                            + "- munculnya pigmen atau noda tak biasa pada kulit,\n"
+                            + "- tahi lalat terasa perih dan tak kunjung hilang,\n"
+                            + "- kemerahan atau pembengkakan di luar batas tahi lalat,\n"
+                            + "- tahi lalat yang rusak dan berdarah,\n"
+                            + "- tahi lalat terasa gatal dan nyeri bila ditekan,\n"
+                            + "- pembengkakan kelenjar,\n"
+                            + "- sesak napas, dan\n"
+                            + "- nyeri tulang (saat melanoma menyebar ke tulang).",
+            "treatment": "Ada berbagai cara yang dianjurkan untuk mencegah kanker kulit melanoma seperti berikut.\n"
+                            + "- Menghindari paparan sinar matahari berlebih pada siang hari.\n"
+                            + "- Menggunakan tabir surya (sunscreen) saat berkegiatan di luar ruangan dengan minimal SPF 30 atau lebih.\n"
+                            + "- Menggunakan pakaian tertutup saat berada di luar ruangan dengan kacamata hitam atau topi untuk perlindungan menyeluruh.\n"
+                            + "- Menjauhkan diri dari berbagai hal yang bisa melemahkan sistem kekebalan tubuh, seperti menghindari HIV dengan tidak melakukan seks bebas.\n"
+                            + "- Memeriksa kondisi kulit secara teratur dan segera memeriksakan diri saat ada perubahan yang tidak biasa.",
+        },
     }
 
     text = database[diseaseName][action]
