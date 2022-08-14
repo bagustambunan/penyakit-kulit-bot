@@ -166,28 +166,24 @@ def makeWebhookResult(action, diseaseName):
         return {
             "fulfillmentMessages": [
                 {
-                "card": {
-                    "title": "card title",
-                    "subtitle": "card text",
-                    "imageUri": "https://duduu.vercel.app/bear.png",
-                    "buttons": [
-                    {
-                        "text": "button text",
-                        "postback": "https://example.com/path/for/end-user/to/follow"
+                    "card": {
+                        "title": database[diseaseName]["name"],
+                        "subtitle": database[diseaseName]["description"],
+                        "imageUri": database[diseaseName]["image"],
                     }
-                    ]
-                }
                 }
             ]
         }
 
-    text = database[diseaseName][action]
-    print("Response:")
-    print(text)
-
     return {
-        "fulfillmentText": text,
-        "source": 'webhook'
+        "fulfillmentMessages": [
+            {
+                "card": {
+                    "title": database[diseaseName]["name"],
+                    "subtitle": database[diseaseName][action],
+                }
+            }
+        ]
     }
 
 
