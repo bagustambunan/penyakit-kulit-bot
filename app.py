@@ -176,7 +176,7 @@ def makeWebhookResult(action, diseaseName):
                     "text": {
                         "text": [
                         'Cobalah: "Gejala '+database[diseaseName]["name"]
-                            +' " atau "Pengobatan '+database[diseaseName]["name"]+' "'
+                            +'" atau "Pengobatan '+database[diseaseName]["name"]+'"'
                         ]
                     }
                 }
@@ -189,6 +189,13 @@ def makeWebhookResult(action, diseaseName):
                 "card": {
                     "title": database[diseaseName]["name"],
                     "subtitle": database[diseaseName][action],
+                }
+            },
+            {
+                "text": {
+                    "text": [
+                    'Cobalah: "Penjelasan penyakit '+database[diseaseName]["name"]+'"'
+                    ]
                 }
             }
         ]
