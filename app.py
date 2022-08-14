@@ -173,8 +173,12 @@ def makeWebhookResult(action, diseaseName):
                     }
                 },
                 {
-                    "text": 'Cobalah: "Gejala '+database[diseaseName]["name"]
+                    "text": {
+                        "text": [
+                        'Cobalah: "Gejala '+database[diseaseName]["name"]
                             +' " atau "Pengobatan '+database[diseaseName]["name"]+' "'
+                        ]
+                    }
                 }
             ]
         }
