@@ -171,6 +171,10 @@ def makeWebhookResult(action, diseaseName):
                         "subtitle": database[diseaseName]["description"],
                         "imageUri": database[diseaseName]["image"],
                     }
+                },
+                {
+                    "text": 'Cobalah: "Gejala '+database[diseaseName]["name"]
+                            +' " atau "Pengobatan '+database[diseaseName]["name"]+' "'
                 }
             ]
         }
