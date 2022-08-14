@@ -1,13 +1,8 @@
-from __future__ import print_function
-from future.standard_library import install_aliases
-install_aliases()
-
 import json
 import os
 
 from flask import Flask
 from flask import request
-from flask import make_response
 
 app = Flask(__name__)
 
@@ -19,35 +14,39 @@ def webhook():
     print(json.dumps(req, indent=4))
 
     res = processRequest(req)
-    # res = json.dumps(res, indent=4)
-    # r = make_response(res)
-    # r.headers['Content-Type'] = 'application/json'
     return res
 
 def processRequest(req):
-    text = "HALO DUNIAAAAA"
-    res = makeWebhookResult(text)
+    action = req.get('queryResult').get('action')
+    diseaseName = req.get('queryResult').get('parameters').get('jenisPenyakit')
+    res = makeWebhookResult(action, diseaseName)
     return res
 
-def makeWebhookResult(text):
+def makeWebhookResult(action, diseaseName):
+    disease = {
+        "Cacar air": {
+            "diseaseName": "Cacar air",
+            "diseaseInfo": "Cacar air adalah penyakit menular yang disebabkan oleh virus Varicella zoster. Penyakit ini ditandai dengan gejala berupa ruam kemerahan berisi cairan yang terasa sangat gatal di seluruh tubuh.",
+            "diseaseTreatment" : "Pencegahan cacar air adalah dengan mendapatkan vaksinasi cacar air atau vaksin varicella. Di Indonesia sendiri, vaksin cacar air tidak termasuk dalam daftar imunisasi rutin lengkap, tetapi tetap dianjurkan untuk diberikan."
+        },
+        "Jerawat" : {
+            "diseaseName" : "Jerawat",
+            "diseaseInfo" : "Jerawat adalah masalah kulit yang terjadi ketika pori-pori kulit tersumbat oleh kotoran, debu, minyak, atau sel kulit mati. Akibatnya, terjadi infeksi pada pori-pori yang tersumbat tersebut sehingga muncul nyeri dan peradangan. Kondisi ini ditandai dengan bintik-bintik yang muncul di wajah, leher, punggung, atau dada.",
+            "diseaseTreatment" : "Pengobatan jerawat disesuaikan dengan tingkat keparahan kondisinya. Metode yang digunakan bisa dengan pemberian obat oles, obat minum, atau terapi hormon. Bisa juga dengan prosedur chemical peeling, terapi laser dan ekstraksi komedo.",
+        },
+    }
 
+    text = disease[diseaseName][action]
     print("Response:")
     print(text)
 
-    # return {
-    #     "speech": text,
-    #     "displayText": text,
-    #     "source": "test-penyakit-kulit-sample"
-    # }
     return {
-        "fulfillmentText": 'This is from the replit webhook',
+        "fulfillmentText": text,
         "source": 'webhook'
     }
 
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
-
     print("Starting app on port %d" % port)
-
     app.run(debug=False, port=port, host='0.0.0.0')
