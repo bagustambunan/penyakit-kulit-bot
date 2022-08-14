@@ -1,16 +1,53 @@
+from __future__ import print_function
+from future.standard_library import install_aliases
+install_aliases()
+
+import json
+import os
+
 from flask import Flask
+from flask import request
+from flask import make_response
+
 app = Flask(__name__)
 
-@app.route('/') # this is the home page route
-def hello_world(): # this is the home page function that generates the page code
-    return "Hello world!"
-    
 @app.route('/webhook', methods=['POST'])
 def webhook():
-  return {
+    req = request.get_json(silent=True, force=True)
+
+    print("Request:")
+    print(json.dumps(req, indent=4))
+
+    res = processRequest(req)
+    # res = json.dumps(res, indent=4)
+    # r = make_response(res)
+    # r.headers['Content-Type'] = 'application/json'
+    return res
+
+def processRequest(req):
+    text = "HALO DUNIAAAAA"
+    res = makeWebhookResult(text)
+    return res
+
+def makeWebhookResult(text):
+
+    print("Response:")
+    print(text)
+
+    # return {
+    #     "speech": text,
+    #     "displayText": text,
+    #     "source": "test-penyakit-kulit-sample"
+    # }
+    return {
         "fulfillmentText": 'This is from the replit webhook',
         "source": 'webhook'
     }
-   
+
+
 if __name__ == '__main__':
-  app.run(host='0.0.0.0', port=8080) # This line is required to run Flask on repl.it
+    port = int(os.getenv('PORT', 5000))
+
+    print("Starting app on port %d" % port)
+
+    app.run(debug=False, port=port, host='0.0.0.0')
