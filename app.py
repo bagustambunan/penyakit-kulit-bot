@@ -10,15 +10,15 @@ app = Flask(__name__)
 def webhook():
     req = request.get_json(silent=True, force=True)
 
-    # print("Request:")
-    # print(json.dumps(req, indent=4))
+    print("Request:")
+    print(json.dumps(req, indent=4))
 
     res = processRequest(req)
     return res
 
 def processRequest(req):
     action = req.get('queryResult').get('action')
-    diseaseName = req.get('queryResult').get('parameters').get('jenisPenyakit')
+    diseaseName = req.get('queryResult').get('parameters')
     res = makeWebhookResult(action, diseaseName)
     return res
 
@@ -36,8 +36,10 @@ def makeWebhookResult(action, diseaseName):
         },
     }
 
-    print("Action :" + action)
-    print("Disease name :" + diseaseName)
+    print("Action :")
+    print(action)
+    print("Disease name :")
+    print(diseaseName)
 
     # text = disease[diseaseName][action]
     text = "Masih dalam development"
