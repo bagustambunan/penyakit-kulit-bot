@@ -162,6 +162,25 @@ def makeWebhookResult(action, diseaseName):
         },
     }
 
+    if(action == 'description'):
+        return {
+            "fulfillmentMessages": [
+                {
+                "card": {
+                    "title": "card title",
+                    "subtitle": "card text",
+                    "imageUri": "https://duduu.vercel.app/bear.png",
+                    "buttons": [
+                    {
+                        "text": "button text",
+                        "postback": "https://example.com/path/for/end-user/to/follow"
+                    }
+                    ]
+                }
+                }
+            ]
+        }
+
     text = database[diseaseName][action]
     print("Response:")
     print(text)
