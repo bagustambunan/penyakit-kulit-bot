@@ -18,7 +18,7 @@ def webhook():
 
 def processRequest(req):
     action = req.get('queryResult').get('action')
-    diseaseName = req.get('queryResult').get('parameters')
+    diseaseName = req.get('queryResult').get('parameters').get('jenispenyakit')
     res = makeWebhookResult(action, diseaseName)
     return res
 
@@ -36,13 +36,13 @@ def makeWebhookResult(action, diseaseName):
         },
     }
 
-    print("Action :")
-    print(action)
-    print("Disease name :")
-    print(diseaseName)
+    # print("Action :")
+    # print(action)
+    # print("Disease name :")
+    # print(diseaseName)
 
-    # text = disease[diseaseName][action]
-    text = "Masih dalam development"
+    text = disease[diseaseName][action]
+    # text = "Masih dalam development"
     print("Response:")
     print(text)
 
